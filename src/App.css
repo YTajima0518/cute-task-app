@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 500;
+  background: linear-gradient(135deg, #fff7fb, #f7f1ff);
+  color: #6f5968;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(100%, 640px);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #f4dce8;
+  border-radius: 32px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(202, 153, 180, 0.22);
+}
+
+.eyebrow,
+h1,
+.message {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #9b7d8f;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #e98baa;
+}
+
+.message {
+  margin: 12px 0 24px;
+  color: #9b7d8f;
+}
+
+/* 入力エリア */
+.inputArea {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: #fff7fb;
+  border: 1px solid #f1cada;
+  border-radius: 24px;
+  padding: 10px;
+}
+
+.inputMainRow {
+  display: grid;
+  grid-template-columns: 1fr 150px auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.inputMainRow input,
+.inputMainRow select {
+  min-width: 0;
+  width: 100%;
+  height: 46px;
+  border: 1px solid #f6dce8;
+  outline: none;
+  background: #fffafd;
+  color: #6f5968;
+  border-radius: 999px;
+  padding: 0 14px;
+  line-height: 46px;
+  font-size: 14px;   /* ←これ追加 or 調整 */
+  color: #9b7d8f;  /* ←少し薄く */
+}
+
+.inputMainRow button {
+  border: none;
+  border-radius: 999px;
+  background: #ef8eaa;
+  color: white;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.inputSubRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dateIconBtn {
+  border: none;
+  border-radius: 999px;
+  background: #fff3f8;
+  color: #b88aa0;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.selectedDue {
+  color: #b88aa0;
+  font-size: 12px;
+}
+
+.calendarArea {
+  width: 100%;
+  padding: 8px 0 0;
+}
+
+.clearDateBtn {
+  border: none;
+  background: transparent;
+  color: #caa6b7;
+  font-size: 11px;
+  padding: 4px 6px;
+}
+
+.clearDateBtn:hover {
+  color: #e07a9b;
+}
+
+/* カレンダー */
+.react-datepicker {
+  border: 1px solid #f1cada;
+  border-radius: 16px;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.react-datepicker__header {
+  background: #fff3f8;
+  border-bottom: 1px solid #f1cada;
+}
+
+.react-datepicker__day--selected {
+  background: #ef8eaa;
+  border-radius: 999px;
+}
+
+/* 進捗 */
+.progress {
+  display: flex;
+  justify-content: space-between;
+  background: #fff3f8;
+  border-radius: 18px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+/* タブ */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.tab {
+  border: 1px solid #f1cada;
+  border-radius: 999px;
+  background: #fffafd;
+  color: #9b7d8f;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: #ef8eaa;
+  color: white;
+  border-color: #ef8eaa;
+}
+
+.archiveTab {
+  font-size: 11px;
+  padding: 4px 8px;
+  opacity: 0.7;
+}
+
+.archiveTab:hover {
+  opacity: 1;
+  background: #f7dce7;
+}
+
+/* タスクリスト */
+.taskList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.taskList h3 {
+  margin: 18px 0 8px;
+  color: #e98baa;
+  text-align: center;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #f3dce7;
+  border-radius: 18px;
+  padding: 10px 12px;
+}
+
+.task.done .taskText span {
+  text-decoration: line-through;
+  color: #c5a8b8;
+}
+
+.taskText {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.taskText span {
+  overflow-wrap: anywhere;
+}
+
+.dueDate {
+  font-size: 11px;
+  color: #b88aa0;
+}
+
+.check {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border: 1px solid #efaac0;
+  border-radius: 10px;
+  background: #fff7fb;
+  color: #e87f9e;
+}
+
+/* タスク内ボタン */
+.deleteBtn {
+  border: none;
+  background: transparent;
+  color: #d8b6c6;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.deleteBtn:hover {
+  color: #e07a9b;
+  opacity: 1;
+}
+
+.archiveBtn {
+  border: none;
+  background: #fff3f8;
+  color: #b88aa0;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+
+.archiveBtn:hover {
+  background: #f7dce7;
+}
+
+/* 編集 */
+.task input,
+.dateInput {
+  width: 100%;
+  border: 1px solid #f1cada;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #fffafd;
+  color: #6f5968;
+}
+
+.editArea {
+  display: grid;
+  gap: 6px;
+}
+
+.editSelect {
+  width: 100%;
+  border: 1px solid #f1cada;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #fffafd;
+  color: #6f5968;
+  font-size: 12px;
+}
+
+
+.taskActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* スマホ */
+@media (max-width: 640px) {
+  .app {
+    padding: 12px;
+    place-items: start center;
+  }
+
+  .card {
+    width: 100%;
+    padding: 24px 18px;
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .inputMainRow {
+    grid-template-columns: 1fr;
+  }
+
+  .inputMainRow select,
+  .inputMainRow button {
+    width: 100%;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .taskList h3 {
+    font-size: 22px;
+    margin-top: 28px;
+  }
+
+  .task {
+    display: grid;
+    grid-template-columns: 34px 1fr 74px;
+    grid-template-areas:
+      "check text actions"
+      "delete text actions";
+    align-items: center;
+    gap: 8px 10px;
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .check {
+    grid-area: check;
+    justify-self: center;
+  }
+
+  .deleteBtn {
+    grid-area: delete;
+    justify-self: center;
+    font-size: 10px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+  }
+
+  .taskText {
+    grid-area: text;
+    min-width: 0;
+  }
+
+  .taskText span {
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    word-break: break-word;
+  }
+
+  .dueDate {
+    font-size: 11px;
+  }
+
+  .taskActions {
+    grid-area: actions;
+    display: grid;
+    gap: 6px;
+    justify-items: end;
+  }
+
+  .archiveBtn {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .editArea {
+    width: 100%;
+  }
+}
