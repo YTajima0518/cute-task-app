@@ -100,12 +100,12 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-const startEdit = (task: Task) => {
-  setEditingId(task.id);
-  setEditTitle(task.title);
-  setEditDueDate(task.dueDate ? new Date(task.dueDate) : null);
-  setEditCategory(task.category);
-};
+  const startEdit = (task: Task) => {
+    setEditingId(task.id);
+    setEditTitle(task.title);
+    setEditDueDate(task.dueDate ? new Date(task.dueDate) : null);
+    setEditCategory(task.category);
+  };
 
   const saveEdit = () => {
     if (!editTitle.trim()) return;

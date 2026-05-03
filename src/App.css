@@ -334,28 +334,37 @@ h1 {
     padding: 24px 16px;
   }
 
-  /* 入力エリア */
   .inputMainRow {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
   }
 
   .inputMainRow button {
-    width: 100%;
-    border-radius: 999px;
-    writing-mode: horizontal-tb; /* ←縦防止 */
+    width: 100% !important;
+    writing-mode: horizontal-tb !important;
   }
 
-  /* タスク */
   .task {
-    display: grid;
-    grid-template-columns: 40px 1fr auto;
+    display: grid !important;
+    grid-template-columns: 44px 1fr;
     grid-template-areas:
-      "check text actions"
-      "delete text actions";
-    gap: 8px;
+      "check text"
+      "delete text"
+      "actions actions";
+    gap: 8px 10px;
+    align-items: center;
     padding: 14px;
+  }
+
+  .check {
+    grid-area: check;
+    justify-self: center;
+  }
+
+  .deleteBtn {
+    grid-area: delete;
+    justify-self: center;
+    white-space: nowrap;
   }
 
   .taskText {
@@ -364,24 +373,24 @@ h1 {
   }
 
   .taskText span {
+    display: block;
     font-size: 15px;
-    line-height: 1.4;
+    line-height: 1.5;
     text-align: left;
-
-    /* ←これが超重要 */
     white-space: normal;
     word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .taskActions {
     grid-area: actions;
-    display: grid;
-    gap: 6px;
-    justify-items: end;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
   }
 
-  /* ぽいっ対策 */
-  .deleteBtn {
-    white-space: nowrap;
+  .archiveBtn {
+    font-size: 11px;
+    padding: 6px 8px;
   }
 }
