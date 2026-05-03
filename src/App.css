@@ -332,27 +332,33 @@ h1 {
   .card {
     width: 100%;
     padding: 24px 16px;
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: 30px;
   }
 
   .inputMainRow {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
+  .inputMainRow input,
+  .inputMainRow select,
   .inputMainRow button {
-    width: 100% !important;
-    writing-mode: horizontal-tb !important;
+    width: 100%;
   }
 
   .task {
-    display: grid !important;
-    grid-template-columns: 44px 1fr;
+    display: grid;
+    grid-template-columns: 36px 1fr;
     grid-template-areas:
       "check text"
       "delete text"
       "actions actions";
     gap: 8px 10px;
-    align-items: center;
     padding: 14px;
   }
 
@@ -374,19 +380,18 @@ h1 {
 
   .taskText span {
     display: block;
+    text-align: left;
     font-size: 15px;
     line-height: 1.5;
-    text-align: left;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: anywhere;
+    word-break: normal;
+    overflow-wrap: break-word;
   }
 
   .taskActions {
     grid-area: actions;
     display: flex;
-    gap: 8px;
     justify-content: flex-end;
+    gap: 8px;
   }
 
   .archiveBtn {
