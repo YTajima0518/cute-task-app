@@ -339,70 +339,68 @@ h1 {
     font-size: 30px;
   }
 
-.inputMainRow {
-  display: grid !important;
-  grid-template-columns: 1fr !important;
-  gap: 8px;
-}
+  .inputMainRow {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px;
+  }
 
-.inputMainRow input,
-.inputMainRow select,
-.inputMainRow button {
-  width: 100% !important;
-  writing-mode: horizontal-tb !important;
-}
+  .inputMainRow input,
+  .inputMainRow select,
+  .inputMainRow button {
+    width: 100% !important;
+    writing-mode: horizontal-tb !important;
+  }
 
-.task {
-  display: grid !important;
-  grid-template-columns: 36px 1fr !important;
-  grid-template-areas:
-    "check text"
-    "delete text"
-    "actions actions" !important;
-  gap: 8px 10px;
-  padding: 14px;
-}
+  .task {
+    display: grid !important;
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "check text"
+      "delete text"
+      "actions actions" !important;
+    gap: 8px 10px;
+    padding: 14px;
+  }
 
   .check {
-    grid-area: check;
+    grid-area: check !important;
     justify-self: center;
   }
 
   .deleteBtn {
-    grid-area: delete;
+    grid-area: delete !important;
     justify-self: center;
-    white-space: nowrap;
+    white-space: nowrap !important;
   }
 
-.taskText {
-  grid-area: text !important;
-  min-width: 0 !important;
-}
+  .taskText {
+    grid-area: text !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
 
-.taskText span {
-  display: block !important;
-  writing-mode: horizontal-tb !important;
-  white-space: normal !important;
-  word-break: normal !important;
-  overflow-wrap: anywhere !important;
-  text-align: left !important;
-}
+  .taskText span {
+    display: block !important;
+    width: 100% !important;
+    writing-mode: horizontal-tb !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    text-align: left !important;
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
 
   .taskActions {
-    grid-area: actions;
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
+    grid-area: actions !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
   }
 
   .archiveBtn {
     font-size: 11px;
     padding: 6px 8px;
-  }
-}
-
-@media (max-width: 640px) {
-  .card {
-    border: 4px solid red !important;
   }
 }
