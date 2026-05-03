@@ -199,7 +199,7 @@ const startEdit = (task: Task) => {
               <div className="calendarArea">
                 <DatePicker
                   selected={dueDate}
-                  onChange={(date) => {
+                  onChange={(date: Date | null) => {
                     setDueDate(date);
                     setShowDatePicker(false);
                   }}
@@ -297,7 +297,7 @@ const startEdit = (task: Task) => {
 
                   <DatePicker
                     selected={editDueDate}
-                    onChange={(date) => setEditDueDate(date)}
+                    onChange={(date: Date | null) => setEditDueDate(date)}
                     dateFormat="yyyy年MM月dd日"
                     placeholderText="ここまで"
                     className="dateInput"
