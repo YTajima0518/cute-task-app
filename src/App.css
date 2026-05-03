@@ -331,60 +331,31 @@ h1 {
 
   .card {
     width: 100%;
-    padding: 24px 18px;
-    border-radius: 28px;
+    padding: 24px 16px;
   }
 
-  h1 {
-    font-size: 28px;
-  }
-
+  /* 入力エリア */
   .inputMainRow {
-    grid-template-columns: 1fr;
-  }
-
-  .inputMainRow select,
-  .inputMainRow button {
-    width: 100%;
-  }
-
-  .tabs {
+    display: flex;
+    flex-direction: column;
     gap: 8px;
   }
 
-  .tab {
-    font-size: 12px;
-    padding: 6px 10px;
+  .inputMainRow button {
+    width: 100%;
+    border-radius: 999px;
+    writing-mode: horizontal-tb; /* ←縦防止 */
   }
 
-  .taskList h3 {
-    font-size: 22px;
-    margin-top: 28px;
-  }
-
+  /* タスク */
   .task {
     display: grid;
-    grid-template-columns: 34px 1fr 74px;
+    grid-template-columns: 40px 1fr auto;
     grid-template-areas:
       "check text actions"
       "delete text actions";
-    align-items: center;
-    gap: 8px 10px;
+    gap: 8px;
     padding: 14px;
-    border-radius: 20px;
-  }
-
-  .check {
-    grid-area: check;
-    justify-self: center;
-  }
-
-  .deleteBtn {
-    grid-area: delete;
-    justify-self: center;
-    font-size: 10px;
-    white-space: nowrap;
-    letter-spacing: 0.5px;
   }
 
   .taskText {
@@ -393,15 +364,13 @@ h1 {
   }
 
   .taskText span {
-    display: block;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.4;
     text-align: left;
-    word-break: break-word;
-  }
 
-  .dueDate {
-    font-size: 11px;
+    /* ←これが超重要 */
+    white-space: normal;
+    word-break: break-word;
   }
 
   .taskActions {
@@ -411,12 +380,8 @@ h1 {
     justify-items: end;
   }
 
-  .archiveBtn {
-    font-size: 11px;
-    padding: 6px 8px;
-  }
-
-  .editArea {
-    width: 100%;
+  /* ぽいっ対策 */
+  .deleteBtn {
+    white-space: nowrap;
   }
 }
